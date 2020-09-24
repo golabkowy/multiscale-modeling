@@ -1,0 +1,138 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./FileSaver.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <!--Own script-->
+</head>
+<body>
+
+<div class="row" id="canvasWrapper">
+    <div class="col-md-12 centered">
+        <canvas id="canvas" width="600" height="600" style="border:1px solid #000000;"></canvas>
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-2">
+            <h2>Input data :</h2>
+            <br>
+            Number of possible collors :
+            <br>
+            <input type="text" id="numberOfKindsOfCells">
+            <br>
+            Number of nucleons [Grain growing only] :
+            <br>
+            <input type="text" id="numberOfNucleons">
+            <br>
+            Number of iterations :
+            <br>
+            <input type="text" id="numberOfIterations">
+            <br>
+            Array sizes :
+            <br>
+            Size X :
+            <br>
+            <input type="text" id="sizeX">
+            <br>
+            Size Y :
+            <br>
+            <input type="text" id="sizeY">
+        </div>
+
+
+        <div class="col-md-2">
+            <h2>Simulation options :</h2>
+            <br>
+            <input type="submit" class="btn btn-primary" onclick="monteCarlo()" value='RunMonteCarlo'>
+            <input type="submit" class="btn btn-primary" onclick="grainGrowingMain()" value='GrainGrowing'>
+            <br>
+            <input type="submit" class="btn btn-primary" onclick="dualPhase()" value="DualPhase">
+        </div>
+
+        <div class="col-md-2">
+            <h2>Energy distribution :</h2>
+            <br>
+            <input type="submit" class="btn btn-primary" onmousedown="showEnergy()" onmouseup="drawCellsTest()" value='Homogenous'>
+            <input type="submit" class="btn btn-primary" onclick="" value='Heterogenous'>
+            <br>
+        </div>
+
+        <div class="col-md-2">
+            <h2>SRXMC</h2>
+            <br>
+            <input type="text" id="srxmcNucleons" value="">
+			<input type="submit" class="btn btn-primary" onclick="newcolors()" value='newcolors'>
+            <br>
+            <input type="submit" class="btn btn-primary" onclick="constant()" value='constant'>
+            <input type="submit" class="btn btn-primary" onclick="siteSaturatedNucleation()" value='SiteSaturated'>
+            <input type="submit" class="btn btn-primary" onclick="constant()" value='Increasing'>
+        </div>
+
+        <div class="col-md-2">
+            <h2>Files management :</h2>
+            <br>
+            File Name:
+            <br>
+            <input type="text" id="fileName" value="example">
+            <br>
+            <input type="submit" class="btn btn-primary" onclick="saveToPng()" value='Save-as-image'>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<style>
+    #canvas {
+        background-color: white;
+    }
+
+    #dragNDrop {
+        width: 350px;
+        height: 70px;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+    }
+
+    body {
+        background-color: #7f7f7f;
+    }
+
+    #canvas {
+        display: table;
+        margin: 0 auto;
+        border: 3px solid #000000;
+    }
+
+    #canvasWrapper {
+        margin-top: 50px;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+</style>
+
+<script src="index.js"></script>
+
+
+</html>
+
+
+
